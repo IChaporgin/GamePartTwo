@@ -18,26 +18,26 @@ fun main() {
 
         val input = readlnOrNull() // Не уверен в правильности этого метода чтения строки
 
-        if (input == null || input.length != 1) {
+        if (input == null || input.length != 1) { // Проверка на null или больше одного символа
             println("Ошибка ввода! Вы должны ввести одну букву")
             continue
         }
 
-        val latter = input.get(0)
+        val latter = input.get(0) // Под вопросом правильность этого метода
 
-        if (latter.lowercaseChar() !in latters) {
+        if (latter.lowercaseChar() !in latters) { // проверка на русский алфавит, сделал в lowcase, если будут вводить caps lock
             println("Буквы должны быть русские")
             continue
         }
 
-        if (latter !in enteredLatters) {
+        if (latter !in enteredLatters) { //проверяю на введенные буквы
             enteredLatters.add(latter)
         } else {
             println("Вы уже вводили данную букву!")
             continue
         }
 
-        if (latter in guessWord) {
+        if (latter in guessWord) { // проверка наличие буквы в слове
             print("Ура, вы угадали!")
             for (i in guessWord.indices) {
                 if (guessWord[i] == latter) {
